@@ -1,1 +1,1 @@
-# ThinkingFunctionalInFSharp
+# Thinking Functional In FSharp
