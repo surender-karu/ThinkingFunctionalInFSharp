@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication1.AssemblyInfo
+﻿namespace ThinkingFunctionalInFSharp.AssemblyInfo
 
 open System.Reflection
 open System.Runtime.CompilerServices
@@ -7,11 +7,11 @@ open System.Runtime.InteropServices
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[<assembly: AssemblyTitle("ConsoleApplication1")>]
+[<assembly: AssemblyTitle("ThinkingFunctionalInFSharp")>]
 [<assembly: AssemblyDescription("")>]
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("")>]
-[<assembly: AssemblyProduct("ConsoleApplication1")>]
+[<assembly: AssemblyProduct("ThinkingFunctionalInFSharp")>]
 [<assembly: AssemblyCopyright("Copyright ©  2018")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]

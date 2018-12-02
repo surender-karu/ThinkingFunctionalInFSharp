@@ -2,12 +2,12 @@
 
 module StatisticalFunctions =
     /// Mean of a population or sample.
-    let mean lst:float =         
+    let mean lst =         
         lst 
         |> List.average
     
     /// Population variance.
-    let variance lst:float = 
+    let variance lst = 
         let avg = mean lst
         let (sum, length) = 
             lst 
@@ -15,7 +15,7 @@ module StatisticalFunctions =
         sum / length
 
     /// Sample variance.
-    let variance_sample lst:float = 
+    let variance_sample lst = 
         let avg = mean lst
         let (sum, length) = 
             lst 
@@ -23,11 +23,11 @@ module StatisticalFunctions =
         sum / (length - 1.0)
    
     /// The population Standard deviation.
-    let std lst:float =
+    let std lst =
         sqrt (variance lst)
     
     /// The sample standard deviation.
-    let std_sample lst:float = 
+    let std_sample lst = 
         sqrt (variance_sample lst)
 
     let covariance (x:float list) (y:float list) =
