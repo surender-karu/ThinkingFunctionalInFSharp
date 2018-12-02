@@ -96,3 +96,26 @@ module StatisticalFunctions =
                             Math.Pow(y * 0.5 * sqrt (Math.PI), p) * c.[k] / p
                         )
             |> List.sum
+
+    // The inverse complementary error function.
+    // http://mathworld.wolfram.com/Erfi.html.
+    // Coefficients of the polinomial approximation built using.
+    let erfci y = 
+        if y < 0.0 || y > 2.0 then
+            failwith "Inverse complementary error function is only valid between [0.0, 2.0]"
+        elif y = 0.0 then Double.PositiveInfinity
+        elif y = 2.0 then Double.NegativeInfinity
+        else
+            erfi (1.0 - y)
+    
+    // CDF of a standard normal distribution
+    let normalCdf t = 
+        (erfci (-t / (sqrt 2.0))) / 2.0
+    
+    // PDF of a standard normal distribution
+    let normalPdf t =
+        exp (-(t * t / 2.0)) / sqrt (2.0 * Math.PI)
+    
+    // Gets the inverse value of a normal distribution at a given point.
+    let normalInv p = 
+        (erfci (2.0 * p)) * -(sqrt 2.0)

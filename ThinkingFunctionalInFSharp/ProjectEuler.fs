@@ -1,5 +1,6 @@
 ﻿namespace ThinkingFunctionalInFSharp
 
+(* Solutions to problems from ProjectEuler.net *)
 module ProjectEuler =
     (* Problem #1 - Multiples of 3 & 5. Ans. 233168 *)
     let multiples3and5 = 
@@ -46,4 +47,36 @@ module ProjectEuler =
             factor <- factor + 2I
         if num = 1I then lastFactor else num
     
-    (* Problem #4 -  *)
+    (* Problem #4 -  largest palindrome made from the product of two 3-digit numbers. Ans: 906609 *)
+    let findLargestPalindrome =
+        let isPalindrome n = 
+            let rec getCoef n accum =
+                let r = n % 10
+                let d = n / 10
+                match d with
+                | 0 -> accum@[r]
+                | _ -> (getCoef d accum)@[r]            
+            
+            let (reversed, _) = 
+                getCoef n []
+                |> List.fold (fun (accum, powTen) state -> (accum + (state * powTen), powTen * 10)) (0, 1)
+            
+            n = reversed
+        
+        let mutable currentNum = 0
+        let mutable largestPalindrome = 0
+        let mutable i = 100
+        let mutable j = 100
+        while i >= 100 do
+            j <- i
+            while j <= 999 do
+                currentNum <- i * j
+                if (isPalindrome currentNum) && currentNum > largestPalindrome then
+                    largestPalindrome <- currentNum
+                j <- j + 1
+            i <- i + 1
+        largestPalindrome
+        
+        
+        
+
